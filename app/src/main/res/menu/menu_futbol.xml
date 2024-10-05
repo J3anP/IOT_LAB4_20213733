@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/ligas"
+        android:enabled="true"
+        android:icon="@drawable/liga"
+        android:title="Ligas"
+        />
+
+    <item
+        android:id="@+id/posiciones"
+        android:enabled="true"
+        android:icon="@drawable/posicion"
+        android:title="Posiciones"
+        />
+
+    <item
+        android:id="@+id/resultados"
+        android:enabled="true"
+        android:icon="@drawable/resultado"
+        android:title="Resultados"
+        />
+</menu>
