@@ -50,7 +50,7 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/field_pais_ligas"
-                android:layout_width="262dp"
+                android:layout_width="200dp"
                 android:layout_height="match_parent"
                 android:hint="Buscar por País"
                 app:errorEnabled="false">

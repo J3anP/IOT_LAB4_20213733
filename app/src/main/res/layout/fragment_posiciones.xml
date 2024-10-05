@@ -50,7 +50,7 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/ed_idLiga1"
-                android:layout_width="140dp"
+                android:layout_width="110dp"
                 android:layout_height="match_parent"
                 android:hint="idLiga"
                 app:errorEnabled="false">
@@ -66,7 +66,7 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/ed_temporada"
-                android:layout_width="140dp"
+                android:layout_width="110dp"
                 android:layout_height="match_parent"
                 android:hint="Temporada"
                 app:errorEnabled="false">

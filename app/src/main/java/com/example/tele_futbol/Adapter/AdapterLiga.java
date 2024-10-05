@@ -63,10 +63,25 @@ public class AdapterLiga extends RecyclerView.Adapter<AdapterLiga.ViewHolder>{
 
         public void bindData(final League liga) {
             //String idLiga = liga.getIdLeague();
-            tvNombre.setText("Nombre: "+liga.getStrLeague());
-            tvId.setText("ID: "+liga.getIdLeague());
-            tvAlt1.setText("Nombre alternativo 1: "+liga.getStrLeagueAlternate().split(",")[0]);
-            tvAlt1.setText("Nombre alternativo 2: "+liga.getStrLeagueAlternate().split(",")[1]);
+            String[] copyList = liga.getStrLeagueAlternate().split(",");
+            if(liga.getStrLeagueAlternate().trim().isEmpty()){
+                tvNombre.setText(liga.getStrLeague());
+                tvId.setText(liga.getIdLeague());
+                tvAlt1.setText("---");
+                tvAlt2.setText("---");
+            }else{
+                if(copyList.length==1){
+                    tvNombre.setText(liga.getStrLeague());
+                    tvId.setText(liga.getIdLeague());
+                    tvAlt1.setText(liga.getStrLeagueAlternate());
+                    tvAlt2.setText("---");
+                }else{
+                    tvNombre.setText(liga.getStrLeague());
+                    tvId.setText(liga.getIdLeague());
+                    tvAlt1.setText(liga.getStrLeagueAlternate().split(",")[0]);
+                    tvAlt2.setText(liga.getStrLeagueAlternate().split(",")[1]);
+                }
+            }
 
         }
     }

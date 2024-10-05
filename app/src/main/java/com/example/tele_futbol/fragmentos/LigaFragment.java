@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.tele_futbol.Adapter.AdapterLiga;
 import com.example.tele_futbol.DTO.LeagueDTO;
@@ -89,12 +90,15 @@ public class LigaFragment extends Fragment {
 
         btSearch = view.findViewById(R.id.bt_liga);
         txtPais = view.findViewById(R.id.ed_pais);
+
         btSearch.setOnClickListener(view1 -> {
-            if(txtPais.getText().toString().isEmpty()){
-                listarLigas();
-            }else{
+
+            if(!txtPais.getText().toString().isEmpty()){
                 listaLigasPais(txtPais.getText().toString());
+            }else{
+                listarLigas();
             }
+
         });
         return view;
 
@@ -115,15 +119,13 @@ public class LigaFragment extends Fragment {
             @Override
             public void onResponse(Call<LeagueDTO> call, Response<LeagueDTO> response) {
                 if(response.isSuccessful()){
-                    ligaDTO = response.body();
-                    listaLiga = ligaDTO.getLeagues();
+                    listaLiga = (response.body()).getCountries();
 
                     adapter = new AdapterLiga(listaLiga,getContext());
-                    recycler = getView().findViewById(R.id.recyclerLiga);
-                    recycler.setNestedScrollingEnabled(false);
-                    recycler.setHasFixedSize(true);
-                    recycler.setLayoutManager(new LinearLayoutManager(getContext()));
+                    adapter.setLiga(listaLiga);
+                    recycler = view.findViewById(R.id.recyclerLiga);
                     recycler.setAdapter(adapter);
+                    recycler.setLayoutManager(new LinearLayoutManager(getContext()));
 
                 }
             }
@@ -141,15 +143,17 @@ public class LigaFragment extends Fragment {
             @Override
             public void onResponse(Call<LeagueDTO> call, Response<LeagueDTO> response) {
                 if(response.isSuccessful()){
-                    ligaDTO = response.body();
-                    listaLiga = ligaDTO.getCountries();
+                    listaLiga = (response.body()).getCountries();
 
-                    adapter = new AdapterLiga(listaLiga,getContext());
-                    recycler = getView().findViewById(R.id.recyclerLiga);
-                    recycler.setNestedScrollingEnabled(false);
-                    recycler.setHasFixedSize(true);
-                    recycler.setLayoutManager(new LinearLayoutManager(getContext()));
-                    recycler.setAdapter(adapter);
+                    if(listaLiga!=null){
+                        adapter = new AdapterLiga(listaLiga,getContext());
+                        adapter.setLiga(listaLiga);
+                        recycler = view.findViewById(R.id.recyclerLiga);
+                        recycler.setAdapter(adapter);
+                        recycler.setLayoutManager(new LinearLayoutManager(getContext()));
+                    }else{//Si no hay resultados para ese país
+                        Toast.makeText(getContext(),"No hay resultados para su búsqueda",Toast.LENGTH_LONG).show();
+                    }
 
                 }
             }
