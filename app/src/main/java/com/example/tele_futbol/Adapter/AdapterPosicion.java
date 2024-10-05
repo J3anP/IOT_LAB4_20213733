@@ -32,7 +32,7 @@ public class AdapterPosicion extends RecyclerView.Adapter<AdapterPosicion.ViewHo
 
     @Override
     public AdapterPosicion.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType){
-        View view = mInflater.inflate(R.layout.irv_ligas, null);
+        View view = mInflater.inflate(R.layout.ivr_posiciones, null);
         return new AdapterPosicion.ViewHolder(view);
     }
 

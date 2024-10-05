@@ -98,7 +98,7 @@
 
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/bt_liga"
+                android:id="@+id/bt_res"
                 android:layout_width="100dp"
                 android:backgroundTint="@color/md_theme_onSecondaryFixed"
                 android:layout_height="match_parent"

@@ -2,6 +2,7 @@ package com.example.tele_futbol.servicio;
 
 import com.example.tele_futbol.DTO.EquipoDTO;
 import com.example.tele_futbol.DTO.LeagueDTO;
+import com.example.tele_futbol.DTO.ResultadoDTO;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
@@ -22,5 +23,8 @@ public interface FreeSportsService {
                                   @Query("s") String temporada);
 
     //Para listar resultados
-
+    @GET("/api/v1/json/3/eventsround.php")
+    Call<ResultadoDTO> listaResultados(@Query("id") String id,
+                                     @Query("s") String temporada,
+                                     @Query("r") String ronda);
 }

@@ -42,7 +42,7 @@ public class LigaFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-    View view;
+    private View view;
     FreeSportsService service;
     LeagueDTO ligaDTO;
     List<League> listaLiga;

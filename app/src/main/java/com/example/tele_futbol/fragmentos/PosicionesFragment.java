@@ -46,10 +46,10 @@ public class PosicionesFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    View view;
+    private View view;
     FreeSportsService service;
-    TextInputEditText edIdLiga;
-    TextInputEditText edTemp;
+    private TextInputEditText edIdLiga;
+    private TextInputEditText edTemp;
     Button btPosicion;
     List<Equipo> listaEquipo;
     AdapterPosicion adapter;
